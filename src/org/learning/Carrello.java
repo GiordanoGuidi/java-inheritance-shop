@@ -8,6 +8,10 @@ public class Carrello {
         Scanner scanner = new Scanner(System.in);
         //Variabile per la lunghezza dell'array
         int cartLength;
+        //Variabile prezzo totale
+        double totalPrice=0;
+        //Variabile carta fedeltà
+        boolean loyaltyCard = false;
         System.out.println("Quanti articoli ci sono nel carrello?");
         cartLength=Integer.parseInt(scanner.nextLine());
         /*Dichiarazione dell'array di Prodotto con lunghezza
@@ -57,8 +61,16 @@ public class Carrello {
                 boolean wireless =Boolean.parseBoolean(scanner.nextLine());
                 cart[i]= new Cuffie(name,description,price,vat,color,wireless);
             }
+            //Chiedo se ha la carta fedeltà
+            System.out.println("Ha la carta fedelta?");
+            loyaltyCard =Boolean.parseBoolean(scanner.nextLine());
+            //Applico il metodo per lo sconto
+            cart[i].getPriceWithLoyaltyCard(loyaltyCard);
+            totalPrice += cart[i].price;
         }
         //Stampo l'array
         System.out.println(Arrays.toString(cart));
+        System.out.println(totalPrice);
+
     }
 }

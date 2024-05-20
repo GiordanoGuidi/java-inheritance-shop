@@ -71,6 +71,13 @@ public class Prodotto {
         return fullName;
     }
 
+    //metodo per calcolare prezzo per i possessori di carta fedeltà
+    public double getPriceWithLoyaltyCard( boolean loyaltyCard){
+        double discount = price * 0.02;
+        price = price - discount;
+        return price;
+    }
+
     // Sovrascrivo il metodo toString()
     @Override
     public String toString() {
