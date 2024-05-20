@@ -2,11 +2,11 @@ package org.learning;
 public class Prodotto {
 
     //ATTRIBUTI
-    private int code;
-    private String name;
-    private String description;
-    private double price;
-    private double vat;
+   protected int code;
+   protected String name;
+   protected String description;
+   protected double price;
+   protected double vat;
 
     //COSTRUTTORE
     public Prodotto(String name,String description,double price,double vat) {
@@ -75,7 +75,7 @@ public class Prodotto {
     @Override
     public String toString() {
         return "Prodotto[codice=" + code + ", nome=" + name + ", " +
-                "description=" + description + ", price=" + price + "vat=" + vat +"]";
+                "description=" + description + ", price=" + price + ", vat=" + vat ;
     }
 }
 
