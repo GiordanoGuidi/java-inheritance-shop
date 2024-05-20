@@ -33,19 +33,24 @@ public class Carrello {
             /*Chiedo all'utente gli attributi specifici
             di ciascun oggetto
              */
+            //Smartphone
             if (product.equals("Smartphone")){
                 System.out.println("Codice IMEI");
                 int imeiCode = Integer.parseInt(scanner.nextLine());
                 System.out.println("Memoria del Telefono");
                 int memory = Integer.parseInt(scanner.nextLine());
                 cart[i]= new Smartphone(name,description,price,vat,imeiCode,memory);
-            } else if (product.equals("Televisore")) {
+            }
+            //Televisori
+            else if (product.equals("Televisore")) {
                 System.out.println("Dimensioni");
                 int size = Integer.parseInt(scanner.nextLine());
                 System.out.println("E' una smart tv?");
                 boolean smart =Boolean.parseBoolean(scanner.nextLine());
                 cart[i]= new Televisore(name,description,price,vat,size,smart);
-            } else if (product.equals("Cuffie")) {
+            }
+            //Cuffie
+            else if (product.equals("Cuffie")) {
                 System.out.println("Colore");
                 String color = (scanner.nextLine());
                 System.out.println("Sono wireless?");
