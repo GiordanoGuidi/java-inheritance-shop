@@ -49,28 +49,39 @@ public class Carrello {
             else if (product.equals("Televisore")) {
                 System.out.println("Dimensioni");
                 int size = Integer.parseInt(scanner.nextLine());
-                System.out.println("E' una smart tv?");
-                boolean smart =Boolean.parseBoolean(scanner.nextLine());
+                System.out.println("E' una smart tv?(si/no)");
+                //Variabile smartInput
+                String smartInput =scanner.nextLine();
+                //Se la variabile equivale a "si" restituisce true
+                boolean smart =smartInput.equals("si");
                 cart[i]= new Televisore(name,description,price,vat,size,smart);
             }
             //Cuffie
             else if (product.equals("Cuffie")) {
                 System.out.println("Colore");
                 String color = (scanner.nextLine());
-                System.out.println("Sono wireless?");
-                boolean wireless =Boolean.parseBoolean(scanner.nextLine());
+                System.out.println("Sono wireless?(si/no)");
+                //Variabile wirelessInput
+                String wirelessInput = scanner.nextLine();
+                //Se la variabile equivale a "si" restituisce true
+                boolean wireless = wirelessInput.equals("si");
                 cart[i]= new Cuffie(name,description,price,vat,color,wireless);
             }
             //Chiedo se ha la carta fedeltà
-            System.out.println("Ha la carta fedelta?");
-            loyaltyCard =Boolean.parseBoolean(scanner.nextLine());
-            //Applico il metodo per lo sconto
-            cart[i].getPriceWithLoyaltyCard(loyaltyCard);
-            totalPrice += cart[i].price;
+            System.out.println("Ha la carta fedelta?(si/no)");
+            String loyaltyCardValue = (scanner.nextLine());
+            if (loyaltyCardValue.equals("si")){
+                loyaltyCard=true;
+                //Applico il metodo per lo sconto
+                totalPrice += cart[i].getPriceWithLoyaltyCard(loyaltyCard);
+            }else {
+                //Se non ha la carta fedeltà restituisco il prezzo base
+                totalPrice += cart[i].price;
+            }
         }
         //Stampo l'array
-        System.out.println(Arrays.toString(cart));
+       System.out.println(Arrays.toString(cart));
         System.out.println(totalPrice);
-
+        System.out.println(loyaltyCard);
     }
 }

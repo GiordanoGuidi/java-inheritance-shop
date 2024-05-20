@@ -73,9 +73,15 @@ public class Prodotto {
 
     //metodo per calcolare prezzo per i possessori di carta fedeltà
     public double getPriceWithLoyaltyCard( boolean loyaltyCard){
+        /*Assegno alla variabile il valore di price*/
+        double discountedPrice = price;
+        //Se loyaltyCard è vera applica lo sconto
+        if (loyaltyCard){
         double discount = price * 0.02;
-        price = price - discount;
-        return price;
+        discountedPrice  = price - discount;
+        }
+        //Ritorno il prezzo scontato
+        return discountedPrice;
     }
 
     // Sovrascrivo il metodo toString()
